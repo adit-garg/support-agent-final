@@ -14,11 +14,11 @@ from dotenv import load_dotenv
 load_dotenv()
 app = FastAPI()
 
+origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    # allow_origins=["http://localhost:3000", "http://localhost:5173","http://192.168.0.188:3000"],
-    allow_origins=["*"],
+    allow_origins=origins if origins != [""] else ["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
