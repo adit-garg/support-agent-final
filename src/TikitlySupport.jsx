@@ -48,7 +48,7 @@ const TikitlySupport = () => {
     setMessages(prev => [...prev, assistantMessage]);
 
     try {
-      const response = await fetch('${import.meta.env.VITE_API_URL}/api/chat/stream', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/chat/stream`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question }),
